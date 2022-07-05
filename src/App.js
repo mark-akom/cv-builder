@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PersonalInfo from "./components/PersonalInfo";
+import Education from "./components/Education";
 
 class App extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class App extends Component {
       <div>
         <h1>Online CV Builder</h1>
         <PersonalInfo profile={profileInfo} handleChange={this.handleProfileChange} />
+        <Education />
       </div>
     )
   }
