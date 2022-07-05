@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PersonalInfo from "./components/PersonalInfo";
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Hello World</h1>
+        <h1>Online CV Builder</h1>
+        <PersonalInfo />
       </div>
     )
   }
