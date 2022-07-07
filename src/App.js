@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
+import uniqid from 'uniqid'
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +17,8 @@ class App extends Component {
       educationInfo: {
         schoolName: "",
         courseStudy: "",
-        schoolYears: ""
+        schoolYears: "",
+        id: uniqid()
       },
       educationList: []
     }
@@ -28,6 +30,9 @@ class App extends Component {
   handleAddEducation() {
     this.setState({
       educationList: [...this.state.educationList, this.state.educationInfo]
+    });
+    this.setState({
+      educationInfo: {...this.state.educationInfo, id: uniqid()}
     })
   }
 
@@ -37,14 +42,18 @@ class App extends Component {
     })
   }
 
-  handleEducationChange(e) {
+  handleEducationChange(e, id) {
+    let targetToChange = this.state.educationList.find(eduItem => eduItem.id === id );
+    targetToChange = {...targetToChange, [e.target.id]: e.target.value};
+    const unchangedEducationList = this.state.educationList.filter(eduItem => eduItem.id !== id);
+
     this.setState({
-      educationInfo: { ...this.state.educationInfo, [e.target.id]: e.target.value }
+      educationList: [...unchangedEducationList, targetToChange]
     })
   }
 
   render() {
-    const { profileInfo, educationInfo, educationList } = this.state;
+    const { profileInfo, educationList } = this.state;
     return (
       <div>
         <h1>Online CV Builder</h1>
@@ -52,9 +61,13 @@ class App extends Component {
           <PersonalInfo profile={profileInfo} handleProfileChange={this.handleProfileChange} />
         </section>
         <section className="education-section">
+          {
+            educationList.map(eduItem => {
+              return (<Education key={eduItem.id} education={eduItem} handleEducationChange={this.handleEducationChange} />)
+            })
+          }
           <button className="add-btn" onClick={this.handleAddEducation}>Add Education</button>
         </section>
-        <Education education={educationInfo} handleEducationChange={this.handleEducationChange} />
       </div>
     )
   }
