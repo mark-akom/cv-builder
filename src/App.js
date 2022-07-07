@@ -12,9 +12,23 @@ class App extends Component {
         phoneNumber: "",
         profession: "",
         profileDesc: ""
-      }
+      },
+      educationInfo: {
+        schoolName: "",
+        courseStudy: "",
+        schoolYears: ""
+      },
+      educationList: []
     }
     this.handleProfileChange = this.handleProfileChange.bind(this);
+    this.handleEducationChange = this.handleEducationChange.bind(this);
+    this.handleAddEducation = this.handleAddEducation.bind(this);
+  }
+
+  handleAddEducation() {
+    this.setState({
+      educationList: [...this.state.educationList, this.state.educationInfo]
+    })
   }
 
   handleProfileChange(e) {
@@ -23,13 +37,24 @@ class App extends Component {
     })
   }
 
+  handleEducationChange(e) {
+    this.setState({
+      educationInfo: { ...this.state.educationInfo, [e.target.id]: e.target.value }
+    })
+  }
+
   render() {
-    const { profileInfo } = this.state;
+    const { profileInfo, educationInfo, educationList } = this.state;
     return (
       <div>
         <h1>Online CV Builder</h1>
-        <PersonalInfo profile={profileInfo} handleChange={this.handleProfileChange} />
-        <Education />
+        <section className="personal-details">
+          <PersonalInfo profile={profileInfo} handleProfileChange={this.handleProfileChange} />
+        </section>
+        <section className="education-section">
+          <button className="add-btn" onClick={this.handleAddEducation}>Add Education</button>
+        </section>
+        <Education education={educationInfo} handleEducationChange={this.handleEducationChange} />
       </div>
     )
   }
