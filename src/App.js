@@ -20,11 +20,21 @@ class App extends Component {
         schoolYears: "",
         id: uniqid()
       },
-      educationList: []
+      workExperience: {
+        companyName: "",
+        position: "",
+        startDate: "",
+        endDate: "",
+        jobRole: "",
+        id: uniqid()
+      },
+      educationList: [],
+      workExperienceList: []
     }
     this.handleProfileChange = this.handleProfileChange.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleAddEducation = this.handleAddEducation.bind(this);
+    this.handleAddWorkExperience = this.handleAddWorkExperience.bind(this);
   }
 
   handleAddEducation() {
@@ -33,6 +43,15 @@ class App extends Component {
     });
     this.setState({
       educationInfo: {...this.state.educationInfo, id: uniqid()}
+    })
+  }
+
+  handleAddWorkExperience() {
+    this.setState({
+      workExperienceList: [...this.state.workExperienceList, this.state.workExperience]
+    });
+    this.setState({
+      workExperience: {...this.state.workExperience, id: uniqid()}
     })
   }
 
@@ -53,7 +72,8 @@ class App extends Component {
   }
 
   render() {
-    const { profileInfo, educationList } = this.state;
+    const { profileInfo, educationList, workExperienceList } = this.state;
+    console.log(workExperienceList);
     return (
       <div>
         <h1>Online CV Builder</h1>
@@ -67,6 +87,9 @@ class App extends Component {
             })
           }
           <button className="add-btn" onClick={this.handleAddEducation}>Add Education</button>
+        </section>
+        <section className="work-section">
+          <button className="add-btn" onClick={this.handleAddWorkExperience}>Add Work Experience</button>
         </section>
       </div>
     )
