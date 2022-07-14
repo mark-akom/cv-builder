@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/work-styles.css'
 
 const WorkExperience = ({workExperience, handleWorkExperienceChange}) => {
 
