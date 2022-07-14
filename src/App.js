@@ -88,7 +88,7 @@ class App extends Component {
   render() {
     const { profileInfo, educationList, workExperienceList } = this.state;
     return (
-      <div>
+      <div className="app-body">
         <h1>Online CV Builder</h1>
         <section className="personal-details">
           <PersonalInfo profile={profileInfo} handleProfileChange={this.handleProfileChange} />
