@@ -91,9 +91,11 @@ class App extends Component {
       <div className="app-body">
         <h1>Online CV Builder</h1>
         <section className="personal-details">
+          <h2 className="section-heading">Personal Infomation</h2>
           <PersonalInfo profile={profileInfo} handleProfileChange={this.handleProfileChange} />
         </section>
         <section className="education-section">
+          <h2 className="section-heading">Education</h2>
           {
             educationList.map(eduItem => {
               return (<Education key={eduItem.id} education={eduItem} handleEducationChange={this.handleEducationChange} />)
@@ -102,6 +104,7 @@ class App extends Component {
           <button className="add-btn" onClick={this.handleAddEducation}>Add Education</button>
         </section>
         <section className="work-section">
+        <h2 className="section-heading">WorkExperience</h2>
           {
             workExperienceList.map(work => {
               return (<WorkExperience key={work.id} handleWorkExperienceChange={this.handleWorkExperienceChange} workExperience={work} />) 
