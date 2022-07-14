@@ -14,9 +14,16 @@ const Education = (props) => {
                     <label htmlFor="courseStudy">Course Studied:</label>
                     <input name="user-course" id="courseStudy" type="text" value={education.courseStudy} onChange={(e) => handleEducationChange(e, education.id)} />
                 </div>
-                <div className="school-years-sec">
-                    <label htmlFor="schoolYears">Years in School:</label>
-                    <input name="user-school-years" id="schoolYears" type="text" value={education.schoolYears} onChange={(e) => handleEducationChange(e, education.id)} />
+                <div className="start-year">
+                    <label htmlFor="startYear">Start Year:</label>
+                    <input name="user-start-year" id="startYear" type="text" value={education.startYear} onChange={(e) => handleEducationChange(e, education.id)} />
+                </div>
+                <div className="end-year">
+                    <label htmlFor="endYear">End Year:</label>
+                    <input name="user-end-year" id="endYear" type="text" value={education.endYear} onChange={(e) => handleEducationChange(e, education.id)} />
+                </div>
+                <div className="btn-group">
+                    <button>Delete Form</button>
                 </div>
             </form>
         </div>

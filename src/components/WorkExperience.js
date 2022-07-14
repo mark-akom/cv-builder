@@ -26,6 +26,9 @@ const WorkExperience = ({workExperience, handleWorkExperienceChange}) => {
                     <label htmlFor="jobRole">Job Role</label>
                     <textarea id="jobRole" onChange={(e) => handleWorkExperienceChange(e, workExperience.id)} value={workExperience.jobRole} name="user-job-role"></textarea>
                 </div>
+                <div className="btn-group">
+                    <button>Delete Form</button>
+                </div>
             </form>
         </div>
     )
