@@ -20,7 +20,8 @@ class App extends Component {
       educationInfo: {
         schoolName: "",
         courseStudy: "",
-        schoolYears: "",
+        startYear: "",
+        endYear: "",
         id: uniqid()
       },
       workExperience: {
@@ -96,20 +97,24 @@ class App extends Component {
         </section>
         <section className="education-section">
           <h2 className="section-heading">Education</h2>
-          {
-            educationList.map(eduItem => {
-              return (<Education key={eduItem.id} education={eduItem} handleEducationChange={this.handleEducationChange} />)
-            })
-          }
+          <div className="education-form-list">
+            {
+              educationList.map(eduItem => {
+                return (<Education key={eduItem.id} education={eduItem} handleEducationChange={this.handleEducationChange} />)
+              })
+            }
+          </div>
           <button className="add-btn" onClick={this.handleAddEducation}>Add Education</button>
         </section>
         <section className="work-section">
-        <h2 className="section-heading">WorkExperience</h2>
-          {
-            workExperienceList.map(work => {
-              return (<WorkExperience key={work.id} handleWorkExperienceChange={this.handleWorkExperienceChange} workExperience={work} />) 
-            })
-          }
+          <h2 className="section-heading">WorkExperience</h2>
+          <div className="work-form-list">
+            {
+              workExperienceList.map(work => {
+                return (<WorkExperience key={work.id} handleWorkExperienceChange={this.handleWorkExperienceChange} workExperience={work} />) 
+              })
+            }
+          </div>
           <button className="add-btn" onClick={this.handleAddWorkExperience}>Add Work Experience</button>
         </section>
       </div>
