@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
+import WorkExperience from "./components/WorkExperience";
 import uniqid from 'uniqid'
 
 class App extends Component {
@@ -89,6 +90,11 @@ class App extends Component {
           <button className="add-btn" onClick={this.handleAddEducation}>Add Education</button>
         </section>
         <section className="work-section">
+          {
+            workExperienceList.map(work => {
+              return (<WorkExperience key={work.id} workExperience={work} />) 
+            })
+          }
           <button className="add-btn" onClick={this.handleAddWorkExperience}>Add Work Experience</button>
         </section>
       </div>
