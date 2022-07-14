@@ -1,7 +1,6 @@
 /* styling of the personal form */
 
 .personal-details-container form {
-    /* border: 1px solid; */
     padding: 36px;
     background-color: white;
     border-radius: 8px;
@@ -9,25 +8,25 @@
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.personal-details-container form div {
+/* .personal-details-container form div {
     display: flex;
     flex-direction: column;
     margin-bottom: 16px;
-}
+} */
 
-.personal-details-container form div:last-child {
+/* .personal-details-container form div:last-child {
     margin-bottom: 0;
-}
+} */
 
-.personal-details-container form label {
+/* .personal-details-container form label {
     display: block;
     font-size: var(--body-font-size);
     font-weight: 500;
     margin-bottom: 4px;
     color: var(--heading-text-color);
-}
+} */
 
-.personal-details-container form input,
+/* .personal-details-container form input,
 .personal-details-container form textarea {
     padding: 6px 8px;
     outline: none;
@@ -35,11 +34,11 @@
     border-radius: 4px;
     color: var(--body-text-color);
     background-color: var(--app-bg-color);
-}
+} */
 
-.personal-details-container form textarea {
+/* .personal-details-container form textarea {
     height: 100px;
     width: auto;
     resize: vertical;
-}
+} */
 
