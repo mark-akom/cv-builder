@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/education-styles.css'
 
 const Education = (props) => {
     const { education, handleEducationChange } = props
