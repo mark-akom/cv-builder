@@ -36,6 +36,7 @@ class App extends Component {
     this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleAddEducation = this.handleAddEducation.bind(this);
     this.handleAddWorkExperience = this.handleAddWorkExperience.bind(this);
+    this.handleWorkExperienceChange = this.handleWorkExperienceChange.bind(this);
   }
 
   handleAddEducation() {
@@ -72,9 +73,18 @@ class App extends Component {
     })
   }
 
+  handleWorkExperienceChange(e, id) {
+    let targetToChange = this.state.workExperienceList.find(workExperience => workExperience.id === id);
+    targetToChange = {...targetToChange, [e.target.id]: e.target.value};
+    const unchangedWorkExperienceList = this.state.workExperienceList.filter(workExperience => workExperience.id !== id);
+
+    this.setState({
+      workExperienceList: [...unchangedWorkExperienceList, targetToChange]
+    })
+  }
+
   render() {
     const { profileInfo, educationList, workExperienceList } = this.state;
-    console.log(workExperienceList);
     return (
       <div>
         <h1>Online CV Builder</h1>
@@ -92,7 +102,7 @@ class App extends Component {
         <section className="work-section">
           {
             workExperienceList.map(work => {
-              return (<WorkExperience key={work.id} workExperience={work} />) 
+              return (<WorkExperience key={work.id} handleWorkExperienceChange={this.handleWorkExperienceChange} workExperience={work} />) 
             })
           }
           <button className="add-btn" onClick={this.handleAddWorkExperience}>Add Work Experience</button>
