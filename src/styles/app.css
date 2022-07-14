@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --body-font-size: 1rem;
+    --heading-font-size: 1.953rem;
+    --app-bg-color: #f3f3f3;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: var(--app-bg-color);
+}
+
+.app-body {
+    width: 70%;
+    margin: auto;
+}
+
+/* styling of the app heading */
