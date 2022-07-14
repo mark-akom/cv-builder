@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
 import WorkExperience from "./components/WorkExperience";
-import uniqid from 'uniqid'
+import uniqid from 'uniqid';
+
+import './styles/app.css';
 
 class App extends Component {
   constructor(props) {
