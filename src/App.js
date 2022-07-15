@@ -40,6 +40,8 @@ class App extends Component {
     this.handleAddEducation = this.handleAddEducation.bind(this);
     this.handleAddWorkExperience = this.handleAddWorkExperience.bind(this);
     this.handleWorkExperienceChange = this.handleWorkExperienceChange.bind(this);
+    this.removeEducationForm = this.removeEducationForm.bind(this);
+    this.removeWorkExperienceForm = this.removeWorkExperienceForm.bind(this);
   }
 
   handleAddEducation() {
@@ -92,6 +94,22 @@ class App extends Component {
     })
   }
 
+  removeEducationForm(e, id) {
+    e.preventDefault();
+    let filteredEducationList = this.state.educationList.filter(education => education.id !== id);
+    this.setState({
+      educationList: [...filteredEducationList]
+    })
+  } 
+
+  removeWorkExperienceForm(e, id) {
+    e.preventDefault();
+    let filteredWorkExperienceList = this.state.workExperienceList.filter(workExperience => workExperience.id !== id);
+    this.setState({
+      workExperienceList: [...filteredWorkExperienceList]
+    })
+  }
+
   render() {
     const { profileInfo, educationList, workExperienceList } = this.state;
     return (
@@ -106,7 +124,7 @@ class App extends Component {
           <div className="education-form-list">
             {
               educationList.map(eduItem => {
-                return (<Education key={eduItem.id} education={eduItem} handleEducationChange={this.handleEducationChange} />)
+                return (<Education key={eduItem.id} removeEducationForm={this.removeEducationForm} education={eduItem} handleEducationChange={this.handleEducationChange} />)
               })
             }
           </div>
@@ -117,7 +135,7 @@ class App extends Component {
           <div className="work-form-list">
             {
               workExperienceList.map(work => {
-                return (<WorkExperience key={work.id} handleWorkExperienceChange={this.handleWorkExperienceChange} workExperience={work} />) 
+                return (<WorkExperience key={work.id} removeWorkExperienceForm={this.removeWorkExperienceForm} handleWorkExperienceChange={this.handleWorkExperienceChange} workExperience={work} />) 
               })
             }
           </div>
