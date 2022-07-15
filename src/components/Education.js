@@ -2,7 +2,7 @@ import React from "react";
 import '../styles/education-styles.css'
 
 const Education = (props) => {
-    const { education, handleEducationChange } = props
+    const { education, handleEducationChange, removeEducationForm } = props
     return(
         <div className="education-section">
             <form>
@@ -23,7 +23,7 @@ const Education = (props) => {
                     <input name="user-end-year" id="endYear" type="text" value={education.endYear} onChange={(e) => handleEducationChange(e, education.id)} />
                 </div>
                 <div className="btn-group">
-                    <button>Delete Form</button>
+                    <button onClick={(e) => removeEducationForm(e, education.id)}>Delete Form</button>
                 </div>
             </form>
         </div>
