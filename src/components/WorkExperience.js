@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/work-styles.css'
 
-const WorkExperience = ({workExperience, handleWorkExperienceChange}) => {
+const WorkExperience = ({workExperience, handleWorkExperienceChange, removeWorkExperienceForm}) => {
 
     return (
         <div className="work-experience-section">
@@ -27,7 +27,7 @@ const WorkExperience = ({workExperience, handleWorkExperienceChange}) => {
                     <textarea id="jobRole" onChange={(e) => handleWorkExperienceChange(e, workExperience.id)} value={workExperience.jobRole} name="user-job-role"></textarea>
                 </div>
                 <div className="btn-group">
-                    <button>Delete Form</button>
+                    <button onClick={(e) => removeWorkExperienceForm(e, workExperience.id)}>Delete Form</button>
                 </div>
             </form>
         </div>
