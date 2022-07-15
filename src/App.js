@@ -67,22 +67,28 @@ class App extends Component {
   }
 
   handleEducationChange(e, id) {
-    let targetToChange = this.state.educationList.find(eduItem => eduItem.id === id );
-    targetToChange = {...targetToChange, [e.target.id]: e.target.value};
-    const unchangedEducationList = this.state.educationList.filter(eduItem => eduItem.id !== id);
+    let educationList = this.state.educationList.map(education => {
+      if (education.id === id) {
+        return {...education, [e.target.id]: e.target.value}
+      } 
+      return education;
+    })
 
     this.setState({
-      educationList: [...unchangedEducationList, targetToChange]
+      educationList: [...educationList]
     })
   }
 
   handleWorkExperienceChange(e, id) {
-    let targetToChange = this.state.workExperienceList.find(workExperience => workExperience.id === id);
-    targetToChange = {...targetToChange, [e.target.id]: e.target.value};
-    const unchangedWorkExperienceList = this.state.workExperienceList.filter(workExperience => workExperience.id !== id);
+    let workExperienceList = this.state.workExperienceList.map(workExperience => {
+      if (workExperience.id === id) {
+        return {...workExperience, [e.target.id]: e.target.value}
+      }
+      return workExperience;
+    })
 
     this.setState({
-      workExperienceList: [...unchangedWorkExperienceList, targetToChange]
+      workExperienceList: [...workExperienceList]
     })
   }
 
