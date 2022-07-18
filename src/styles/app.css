@@ -51,7 +51,8 @@ input, textarea , button{
 
 /* styling of add buttons */
 
-.add-btn {
+.add-btn,
+.preview-btn {
     padding: 12px 20px;
     display: block;
     font-size: 16px;
@@ -121,4 +122,12 @@ section {
     outline: none;
     border: 1px solid var(--field-border-color);
     
+}
+
+/* styling of preview button */
+
+.preview-btn {
+    position: fixed;
+    right: 5%;
+    bottom: 15%;
 }
