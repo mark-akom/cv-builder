@@ -1,0 +1,52 @@
+.name {
+    font-size: 3.1rem;
+    color: var(--heading-text-color);
+    padding-bottom: 8px;
+}
+
+.prof {
+    font-size: var(--section-heading-size);
+    color: var(--body-text-color);
+}
+
+.contact-info {
+    display: flex;
+    gap: 16px;
+    padding-top: 8px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-info p span:last-child {
+    color: var(--body-text-color);
+}
+
+.contact-info p span:first-child {
+    color: var(--heading-text-color)
+}
+
+hr {
+    width: 85%;
+}
+
+.personal-summary {
+    padding-top: 24px;
+}
+
+.preview-section-heading {
+    font-size: var(--section-heading-size);
+    color: var(--heading-text-color);
+    padding-bottom: 12px;
+}
+
+.personal-summary .summary-text {
+    padding-top: 16px;
+    width: 80%;
+    line-height: var(--text-line-height);
+    color: var(--body-text-color);
+
+}
