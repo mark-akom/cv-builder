@@ -14,6 +14,7 @@
     --heading-text-color: #171717;
     --field-border-color: #eeeeee;
     --section-heading-size: 1.25rem;
+    --text-line-height: 1.5;
 }
 
 html {
@@ -25,6 +26,7 @@ html {
 input, textarea , button{
     font-size: inherit;
 }
+
 
 .app-body {
     width: 80%;
@@ -95,6 +97,7 @@ div form textarea {
     border-radius: 4px;
     color: var(--body-text-color);
     background-color: var(--app-bg-color);
+    font-family: inherit;
 }
 
 div form textarea {
