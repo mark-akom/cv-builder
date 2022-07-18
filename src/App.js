@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
 import WorkExperience from "./components/WorkExperience";
+import Preview from "./components/PreviewCV";
 import uniqid from 'uniqid';
 
 import './styles/app.css';
@@ -33,7 +34,8 @@ class App extends Component {
         id: uniqid()
       },
       educationList: [],
-      workExperienceList: []
+      workExperienceList: [],
+      previewCV: true,
     }
     this.handleProfileChange = this.handleProfileChange.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
@@ -111,7 +113,7 @@ class App extends Component {
   }
 
   render() {
-    const { profileInfo, educationList, workExperienceList } = this.state;
+    const { profileInfo, educationList, workExperienceList, previewCV } = this.state;
     return (
       <div className="app-body">
         <h1>Online CV Builder</h1>
@@ -142,6 +144,7 @@ class App extends Component {
           <button className="add-btn" onClick={this.handleAddWorkExperience}>Add Work Experience</button>
         </section>
         <button className="preview-btn">Preview CV</button>
+        {previewCV && <Preview profileInfo={profileInfo} /> }
       </div>
     )
   }
