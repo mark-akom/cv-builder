@@ -131,7 +131,7 @@ class App extends Component {
           <button className="add-btn" onClick={this.handleAddEducation}>Add Education</button>
         </section>
         <section className="work-section">
-          <h2 className="section-heading">WorkExperience</h2>
+          <h2 className="section-heading">Work Experience</h2>
           <div className="work-form-list">
             {
               workExperienceList.map(work => {
@@ -141,6 +141,7 @@ class App extends Component {
           </div>
           <button className="add-btn" onClick={this.handleAddWorkExperience}>Add Work Experience</button>
         </section>
+        <button className="preview-btn">Preview CV</button>
       </div>
     )
   }
