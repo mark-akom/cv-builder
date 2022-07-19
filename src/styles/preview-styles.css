@@ -1,3 +1,19 @@
+.preview-container {
+    position: fixed;
+    z-index: 9;
+    background-color: white;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.preview {
+    width: 60%;
+    margin: auto;
+    padding: 4% 0;
+}
+
 .name {
     font-size: 3.1rem;
     color: var(--heading-text-color);
@@ -29,10 +45,6 @@
     color: var(--heading-text-color)
 }
 
-hr {
-    width: 85%;
-}
-
 .personal-summary {
     padding-top: 24px;
 }
@@ -45,8 +57,38 @@ hr {
 
 .personal-summary .summary-text {
     padding-top: 16px;
-    width: 80%;
     line-height: var(--text-line-height);
     color: var(--body-text-color);
+}
 
+/* styling of employment section and education section */
+
+.work-list, 
+.education-list {
+    padding-top: 16px;
+}
+
+.work-item,
+.education-item {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    
+}
+
+.duration > p {
+    font-weight: 500;
+    color: var(--heading-text-color)
+}
+
+.other-work-details .company-name,
+.other-school-details .school-name {
+    font-size: 20px;
+    color: var(--heading-text-color);
+    padding-bottom: 8px;
+}
+
+.other-work-details p {
+    color: var(--body-text-color);
+    line-height: var(--text-line-height);
 }
