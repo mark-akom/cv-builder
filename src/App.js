@@ -35,7 +35,7 @@ class App extends Component {
       },
       educationList: [],
       workExperienceList: [],
-      previewCV: true,
+      previewCV: false,
     }
     this.handleProfileChange = this.handleProfileChange.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
@@ -44,6 +44,7 @@ class App extends Component {
     this.handleWorkExperienceChange = this.handleWorkExperienceChange.bind(this);
     this.removeEducationForm = this.removeEducationForm.bind(this);
     this.removeWorkExperienceForm = this.removeWorkExperienceForm.bind(this);
+    this.openAndClosePreview = this.openAndClosePreview.bind(this);
   }
 
   handleAddEducation() {
@@ -112,6 +113,12 @@ class App extends Component {
     })
   }
 
+  openAndClosePreview() {
+    this.setState({
+      previewCV: !(this.state.previewCV)
+    })
+  }
+
   render() {
     const { profileInfo, educationList, workExperienceList, previewCV } = this.state;
     return (
@@ -143,8 +150,10 @@ class App extends Component {
           </div>
           <button className="add-btn" onClick={this.handleAddWorkExperience}>Add Work Experience</button>
         </section>
-        <button className="preview-btn">Preview CV</button>
-        {previewCV && <Preview profileInfo={profileInfo} /> }
+        <button className="preview-btn" onClick={this.openAndClosePreview}>
+          {!(this.state.previewCV) ? 'Preview CV' : 'Close CV'}
+        </button>
+        {previewCV && <Preview profileInfo={profileInfo} workExperienceList={workExperienceList} educationList={educationList} /> }
       </div>
     )
   }
