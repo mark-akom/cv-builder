@@ -66,13 +66,13 @@ const Preview = ({ profileInfo, workExperienceList, educationList }) => {
                     {workList}
                 </div>
             </section>
-            <scetion className="education-history">
+            <section className="education-history">
                 <h2 className="preview-section-heading">Education History</h2>
                 <hr />
                 <div className="education-list">
                     {education}
                 </div>
-            </scetion>
+            </section>
             </div>
         </div>
     )
