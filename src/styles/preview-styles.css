@@ -88,7 +88,8 @@
     padding-bottom: 8px;
 }
 
-.other-work-details p {
+.other-work-details p,
+.other-school-details p {
     color: var(--body-text-color);
     line-height: var(--text-line-height);
 }
