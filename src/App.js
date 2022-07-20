@@ -36,6 +36,7 @@ class App extends Component {
       educationList: [],
       workExperienceList: [],
       previewCV: false,
+      showPreviewButton: false,
     }
     this.handleProfileChange = this.handleProfileChange.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
@@ -69,6 +70,13 @@ class App extends Component {
     this.setState({
       profileInfo: { ...this.state.profileInfo, [e.target.id]: e.target.value }
     })
+
+    let results = Object.values(this.state.profileInfo).every(val => val !== "");
+    if (results) {
+      this.setState({
+        showPreviewButton: true,
+      });
+    }
   }
 
   handleEducationChange(e, id) {
@@ -150,9 +158,11 @@ class App extends Component {
           </div>
           <button className="add-btn" onClick={this.handleAddWorkExperience}>Add Work Experience</button>
         </section>
-        <button className="preview-btn" onClick={this.openAndClosePreview}>
-          {!(this.state.previewCV) ? 'Preview CV' : 'Close CV'}
-        </button>
+        {this.state.showPreviewButton && (
+          <button className="preview-btn" onClick={this.openAndClosePreview}>
+            {!(this.state.previewCV) ? 'Preview CV' : 'Close CV'}
+          </button>)
+        }
         {previewCV && <Preview profileInfo={profileInfo} workExperienceList={workExperienceList} educationList={educationList} /> }
       </div>
     )
